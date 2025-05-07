@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Turnover</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Default text color */
+            background-color: #092635; /* Background color */
+        }
+
+        .container {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            background-color: #1B4242; /* Form background color */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #fff; /* Label color */
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: calc(100% - 18px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #5C8374;
+            box-sizing: border-box;
+            outline: none;
+            background-color: #092635; /* Input background color */
+            color: #fff; /* Input text color */
+        }
+
+        input[type="submit"] {
+            padding: 12px 24px;
+            background-color: #5C8374; /* Button background color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9EC8B9; /* Button hover color */
+        }
+
+        h1, h2 {
+            color: #fff; /* Heading color */
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Employee Turnover Prediction</h1>
+    <h2>Prediction: {{prediction}}</h2>
+
+    <div class="container">
+        <form action="/predict" method="post">
+            <!-- Form elements -->
+            <label for="Promoted">Promoted:</label>
+            <select id="Promoted" name="Promoted">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br>
+
+            <label for="Reviews">Review :</label>
+            <input type="text" id="Reviews" name="Enter_Reviews"><br>
+
+            <label for="Projects">No. of Projects :</label>
+            <input type="number" id="Projects" name="Enter_no_of_Projects"><br>
+
+            <label for="Salary">Salary :</label>
+            <select id="Salary" name="Salary">
+                <option value="0">High</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+            </select><br>
+
+            <label for="Tenure">Tenure :</label>
+            <input type="text" id="Tenure" name="Tenure"><br>
+
+            <label for="Satisfaction">Satisfaction :</label>
+            <input type="text" id="Satisfaction" name="Satisfaction"><br>
+
+            <label for="Bonus">Bonus :</label>
+            <input type="number" id="Bonus" name="Bonus"><br>
+
+            <label for="AvgHours">avg_hrs_month :</label>
+            <input type="text" id="AvgHours" name="Enter_Avg_hrs_month"><br>
+
+            <label for="Left">Left :</label>
+            <select id="Left" name="Left">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+
+    <!-- Prediction result display section -->
+    <h2>Prediction: {{prediction}}</h2>
+</body>
+</html>
